@@ -1,0 +1,198 @@
+.loader-con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    width: 100%;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.task-total-con {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--all-dash-section);
+    transition: background-color 0.3s;
+}
+
+/* ===== MAIN LAYOUT CONTAINER ===== */
+.task-containers {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ===== RIGHT SIDE CONTENT GRID ===== */
+.total-complete-right-con {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+/* ===== COMPLETED TASK CARD ===== */
+.completed-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    height:30vh;
+}
+
+.completed-card:hover {
+    transform: translateY(-3px);
+}
+
+.completed-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.complete-card-head {
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.complete-status-color {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.task-card-icon-con {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.task-card-head {
+    font-size: 14px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: #444;
+}
+
+.task-card-icon {
+    font-size: 16px;
+    color: #555;
+}
+
+/* =========================================
+   MEDIA QUERIES - TABLET (max-width: 1024px)
+   ========================================= */
+@media screen and (max-width: 1024px) {
+    .task-containers {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .total-complete-right-con {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+
+    .completed-card {
+        padding: 14px;
+    }
+
+    .complete-card-head {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .task-card-head {
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   MEDIA QUERIES - MOBILE (max-width: 768px)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .task-containers {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .total-complete-right-con {
+        padding: 0;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    .completed-card {
+        padding: 12px;
+    }
+
+    .completed-status {
+        margin-bottom: 10px;
+        gap: 8px;
+    }
+
+    .task-card-icon-con {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .task-card-head {
+        font-size: 13px;
+    }
+
+    .complete-card-head {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .complete-status-color {
+        width: 9px;
+        height: 9px;
+    }
+
+    .task-card-icon {
+        font-size: 15px;
+    }
+}
+
+/* =========================================
+   MEDIA QUERIES - SMALL PHONES (max-width: 480px)
+   ========================================= */
+@media screen and (max-width: 480px) {
+    .task-containers {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .total-complete-right-con {
+        padding: 0;
+        gap: 10px;
+        grid-template-columns: 1fr;
+    }
+
+    .completed-card {
+        padding: 24px;
+    }
+
+    .completed-status {
+        margin-bottom: 10px;
+        gap: 8px;
+    }
+
+    .complete-card-head {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .task-card-head {
+        font-size: 13px;
+    }
+}

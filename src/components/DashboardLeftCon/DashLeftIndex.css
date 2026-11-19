@@ -1,0 +1,103 @@
+.dash-left-con{
+    width: 250px;
+    background-color: var(--bg-secondary); /* Updated */
+    box-shadow: var(--sidebar-shadow); /* Updated */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    min-height: 83vh;
+    max-height: 83vh; /* Prevents overflowing the entire screen height */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto; /* Adds scrolling only if inner items exceed max-height */
+    border: 1px solid var(--border-color, transparent);
+}
+.left-link-item{
+    color: var(--text-primary);
+    font-size :15px;
+    text-decoration:none;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dash-left-icon{
+    display:flex; 
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    margin: 4px 0;
+}
+.dash-left-icon:hover {
+    background-color: var(--nav-icon-hover); /* Updated */
+}
+
+.select-dash-left-icon{
+    display:flex; 
+    padding: 8px;
+    background-color: var(--selected-bg);
+    color: var(--selected-text);
+    border-radius: 8px;
+    margin: 4px 0;
+    text-decoration: none;
+}
+.select-left-link-item{
+    color: var(--selected-text);
+    font-size :15px;
+    text-decoration:none;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    .dash-left-con {
+        width: 200px;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dash-left-con {
+        width: 100%;
+        min-height: auto; /* FIX: Allows sidebar to shrink properly on mobile */
+        padding: 10px;
+        flex-direction: column;
+        justify-content: center; /* FIX: Centers all icons together */
+        align-items: center;
+        flex-wrap: wrap; 
+        gap: 15px 10px; /* Adds clean, even spacing between all icons */
+    }
+    
+    /* THE MAGIC FIX: 
+       This makes the inner <div> "invisible" to the layout. The icons inside 
+       the <div> and the Settings link now act as direct siblings in the flex container, 
+       so Settings wraps perfectly with the other icons instead of sitting off to the side. */
+    .dash-left-con > div {
+        display: contents;
+    }
+
+    .dash-left-icon, 
+    .select-dash-left-icon {
+        padding: 8px;
+        margin: 0; /* Resets old margins to rely entirely on the parent's 'gap' property */
+        min-height: 44px; /* FIX: Touch-friendly size (44px is the standard Apple/Mobile standard) */
+        min-width: 44px;
+    }
+    
+    /* Hide text labels on mobile, show only icons */
+    .left-link-item span:last-child,
+    .select-left-link-item span:last-child {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dash-left-con {
+        gap: 10px 5px; /* Tighter spacing for very small phone screens */
+    }
+}

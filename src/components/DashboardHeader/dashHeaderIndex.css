@@ -1,0 +1,130 @@
+.nav-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    height: auto;
+    min-height: 43px;
+    /* FIX: Replaced fixed colors with CSS variables */
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-shadow: var(--sidebar-shadow);
+    transition: background-color 0.3s, color 0.3s;
+    border-bottom: 1px solid var(--border-color, transparent);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left-para {
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ... existing styles that don't need variable changes ... */
+
+.dash-input {
+    border-width: 0px;
+    background-color: transparent;
+    padding: 5px 10px;
+    height: 27px;
+    width: 100%;
+    color: var(--text-primary);
+}
+
+.dash-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-icon {
+    color: var(--text-primary);
+    height: 15px;
+    width: 15px;
+}
+
+.dash-input-con {
+    border-radius: 11px;
+    background-color: var(--bg-primary); /* Uses primary background for contrast */
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    border: 1px solid var(--border-color, transparent); 
+}
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Ensure even spacing */
+}
+.link-item {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: bold;
+    padding: 5px;
+    white-space: nowrap; /* Prevent wrapping */
+    display: flex; /* Make it behave like a flex item with height control */
+    align-items: center;
+}
+
+/* New Theme Toggle Button Styles */
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--text-primary);
+    border-radius: 50%;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    width: 36px; /* Fixed size */
+    height: 36px; /* Fixed size */
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--nav-icon-hover);
+    transform: scale(1.1);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .nav-con { padding: 10px; }
+
+    .dash-input-con {
+        width: 100%;
+        order: 3;
+    }
+
+    .nav-right { gap: 15px; }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-con {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-left-para { font-size: 16px; }
+    
+    /* Touch friendly size for mobile toggle */
+    .theme-toggle-btn {
+        padding: 10px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
