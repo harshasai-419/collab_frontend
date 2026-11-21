@@ -4,6 +4,8 @@ import {Link,Navigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import API_BASE_URL from '../../apiConfig'
 
+console.log("[LoginPage] API_BASE_URL is:", API_BASE_URL);
+
 class LoginPage extends Component{
     state={username:'',password:'',goToHome:false,res:''}
 
@@ -15,6 +17,7 @@ class LoginPage extends Component{
         }
         else{
             const url=`${API_BASE_URL}/login`
+            console.log("[LoginPage] Fetching login URL:", url)
             const userDetails={
                     username:username,
                     password:password
